@@ -1,0 +1,11 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+class skinify {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        String nama = input.nextLine();
+        int TahunBeli = input.nextInt();
+    }
+}
