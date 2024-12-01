@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Thread;
 
 public class ideakhir {
     public static void main(String[] args) {
