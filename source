@@ -1,11 +1,180 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
-class skinify {
+public class ideakhir {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        
-        String nama = input.nextLine();
-        int TahunBeli = input.nextInt();
+
+        //tampilan awal
+        System.out.println("==========================================================");
+        System.out.println("                SELAMAT DATANG DI SKINIFY                 ");
+        System.out.println("==========================================================");
+        System.out.println("pilih 1 untuk lanjut dan pilih 2 untuk selesai");
+
+        //konfirmasi input
+        while (true){
+            System.out.print("masukkan input: ");
+            int pilih = input.nextInt();
+            input.nextLine();
+            if (pilih<1 || pilih>2){
+                System.out.println("Invalid number please enter the number correctly!");
+                continue;
+            }
+            if (pilih == 2){
+                System.out.println("==========================================================");
+                System.out.println("          TERIMAKASIH SUDAH MENGGUNAKAN SKINIFY");
+                System.out.println("==========================================================");
+                System.out.println("           Here's a bouquet of flowers for you");
+                System.out.println("                        OOOOOOO");
+                System.out.println("                      OOOOOOOOOOO");
+                System.out.println("                   /\\_OOOOOOOOOOO");
+                System.out.println("                  ( ^ - ^OOOOO");
+                System.out.println("                   \\ >   \\   /");
+                System.out.println("                     U U / @ \\");
+                System.out.println("         Jumlah skin yang anda input: 0");
+                System.out.println("         Total uang yang akan diperoleh: Rp 0");
+                System.out.println("__________________________________________________________");
+                System.exit(0);
+            }
+            if (pilih == 1){
+                break;
+            }
+        }
+        //input skin
+        System.out.println("sebelum memasukkan skin masukkan jumlah yang ingin digadai");
+        System.out.print("Jumlah skin: ");
+        int jumlahskin = input.nextInt();
+        input.nextLine();
+        int totalHarga = 0;
+        for (int i=0; i<jumlahskin; i++){
+            System.out.println("==========================================================");
+            System.out.println("                   Pilih kategori skin");
+            System.out.println("==========================================================");
+            System.out.println("1. Deluxe");
+            System.out.println("2. Premium");
+            System.out.println("3. Exclusive");
+            System.out.println("4. Ultra");
+            System.out.println("5. Limited");
+            System.out.print("Masukkan kategori:");
+
+            String kategori = input.nextLine();
+            switch (kategori){
+                case "Deluxe":
+                System.out.println("==========================================================");
+                String[] Deluxe = {"1. Abyssal", "2. Altitude","3. Aristocrat", "4. Avalanche", "5. Horizon", "6. Minima", "7. Prism", "8. Sakura", "9. Snowfall", "10. Team one", "11. Tigris", "12. Wasteland"};
+                for(int j = 0; j < Deluxe.length;j++){
+                    System.out.println(Deluxe[j]);
+                }
+                System.out.print("Input nama skin: ");
+                String namaSkin1 = input.nextLine();
+                System.out.print("Input tahun rilis: ");
+                int tahunRilis1 = input.nextInt();
+                input.nextLine();
+                totalHarga += deluxe(namaSkin1, tahunRilis1);
+                break;
+
+                case "Premium":
+                System.out.println("==========================================================");
+                String[] Premium = {"1. Valiant", "2. Celestial","3. Reaver", "4. Prime", "5. Forsaken", "6. Gaia", "7. G.U.N", "8. ION", "9. Magepunk", "10. Neptune", "11. oni", "12. Origin", "13. Radiant", "14. Recon", "15. Sovereign", "16. Xerofang"};
+                for(int j = 0; j < Premium.length;j++){
+                    System.out.println(Premium[j]);
+                }
+                System.out.print("Input nama skin: ");
+                String namaSkin2 = input.nextLine();
+                System.out.print("Input tahun rilis: ");
+                int tahunRilis2 = input.nextInt();
+                input.nextLine();
+                totalHarga += premium(namaSkin2, tahunRilis2);
+                break;
+
+                case "Exclusive":
+                System.out.println("==========================================================");
+                String[] Exclusive = {"1. RGX", "2. Evori Dreamwings","3. Primordium", "4. Kuronami", "5. Imperium", "6. Overdrive", "7. Araxys", "8. Blastx", "9. ChronoVoid", "10. Glitchpop", "11. Neo frontier", "12. Prelude to chaos", "13. Singularity", "14. Sentinels of light"};
+                for(int j = 0; j < Exclusive.length;j++){
+                    System.out.println(Exclusive[j]);
+                }
+                System.out.print("Input nama skin: ");
+                String namaSkin3 = input.nextLine();
+                System.out.print("Input tahun rilis: ");
+                int tahunRilis3 = input.nextInt();
+                input.nextLine();
+                totalHarga += exclusive(namaSkin3, tahunRilis3);
+                break;
+
+                case "Ultra":
+                System.out.println("==========================================================");
+                String[] Ultra = {"1. Radian Entertainment System", "2. Elderflame","3. Protocol", "4. Spectrum"};
+                for(int j = 0; j < Ultra.length;j++){
+                    System.out.println(Ultra[j]);
+                }
+                System.out.print("Input nama skin: ");
+                String namaSkin4 = input.nextLine();
+                System.out.print("Input tahun rilis: ");
+                int tahunRilis4 = input.nextInt();
+                input.nextLine();
+                totalHarga += ultra(namaSkin4, tahunRilis4);
+                break;
+
+                case "Limited":
+                System.out.println("==========================================================");
+                String[] Limited = {"1. Arcane", "2. Champion"};
+                for(int j = 0; j < Limited.length;j++){
+                    System.out.println(Limited[j]);
+                }
+                System.out.print("Input nama skin: ");
+                String namaSkin5 = input.nextLine();
+                System.out.print("Input tahun rilis: ");
+                int tahunRilis5 = input.nextInt();
+                input.nextLine();
+                totalHarga += limited(namaSkin5, tahunRilis5);
+                break;
+            }
+        }
+        //Loading animation
+        for(int o =0;o<=100;o++){
+            System.out.print("\rLoading: "+ o + "%");
+            try {
+                Thread.sleep(50);
+            } catch (Exception e) {
+            }
+        }
+
+        //output akhir
+        System.out.println(" Done!");
+        System.out.println("==========================================================");
+        System.out.println("          TERIMAKASIH SUDAH MENGGUNAKAN SKINIFY");
+        System.out.println("==========================================================");
+        System.out.println("           Here's a bouquet of flowers for you");
+        System.out.println("                        OOOOOOO");
+        System.out.println("                      OOOOOOOOOOO");
+        System.out.println("                   /\\_OOOOOOOOOOO");
+        System.out.println("                  ( ^ - ^OOOOO");
+        System.out.println("                   \\ >   \\   /");
+        System.out.println("                     U U / @ \\");
+        System.out.println("         Jumlah skin yang anda input: " + jumlahskin);
+        System.out.println("         Total uang yang akan diperoleh: Rp " + totalHarga);
+        System.out.println("__________________________________________________________");
+
+    }   
+
+
+    public static int deluxe(String x, int y){
+        return  100000 - (20000*(2024-y));
     }
+
+    public static int premium(String x, int y){
+        return 150000 - (20000*(2024-y));
+    }
+
+    public static int exclusive(String x, int y){
+        return 200000 - (20000*(2024-y));
+    }
+
+    public static int ultra(String x, int y){
+        return 220000 - (20000*(2024-y));
+    }
+
+    public static int limited(String x, int y){
+        return 220000 + (10000*(2024-y));
+    }
+
 }
